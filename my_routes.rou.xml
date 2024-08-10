@@ -1,0 +1,51 @@
+<routes>
+    <!-- Define vehicle types -->
+    <vType id="car" accel="1.0" decel="4.5" sigma="0.5" length="5.0" maxSpeed="70.0" color="1,0,0"/>
+    <vType id="controlled_car" accel="1.0" decel="4.5" sigma="0.5" length="5.0" maxSpeed="70.0" color="0,0,1"/>
+
+    <!-- Define routes -->
+    <!-- Dense traffic routes -->
+    <route id="dense1" edges="1to2 2to3 3to4 4to5"/>
+    <route id="dense2" edges="6to7 7to8 8to9 9to10"/>
+    <route id="dense3" edges="11to12 12to13 13to14 14to15"/>
+    <route id="dense4" edges="16to17 17to18 18to19 19to20"/>
+    <route id="dense5" edges="21to22 22to23 23to24 24to25"/>
+
+    <!-- Packed traffic routes -->
+    <route id="packed1" edges="26to27 27to28 28to29 29to30"/>
+    <route id="packed2" edges="31to32 32to33 33to34 34to35"/>
+    <route id="packed3" edges="36to37 37to38 38to39 39to40"/>
+
+    <!-- Moderate traffic routes -->
+    <route id="moderate1" edges="41to42 42to43 43to44 44to45"/>
+    <route id="moderate2" edges="46to47 47to48 48to49 49to50"/>
+    <route id="moderate3" edges="1to6 6to11 11to16 16to21"/>
+    <route id="moderate4" edges="2to7 7to12 12to17 17to22"/>
+    <route id="moderate5" edges="3to8 8to13 13to18 18to23"/>
+    <route id="moderate6" edges="4to9 9to14 14to19 19to24"/>
+    <route id="moderate7" edges="5to10 10to15 15to20 20to25"/>
+
+    <!-- Controlled vehicles (30% of 20 vehicles = 6 vehicles) -->
+    <vehicle id="ctrl_veh0" type="controlled_car" route="dense1" depart="0"/>
+    <vehicle id="ctrl_veh1" type="controlled_car" route="dense2" depart="10"/>
+    <vehicle id="ctrl_veh2" type="controlled_car" route="dense3" depart="20"/>
+    <vehicle id="ctrl_veh3" type="controlled_car" route="dense4" depart="30"/>
+    <vehicle id="ctrl_veh4" type="controlled_car" route="dense5" depart="40"/>
+    <vehicle id="ctrl_veh5" type="controlled_car" route="packed1" depart="50"/>
+
+    <!-- Regular vehicles -->
+    <vehicle id="veh0" type="car" route="moderate1" depart="60"/>
+    <vehicle id="veh1" type="car" route="moderate2" depart="70"/>
+    <vehicle id="veh2" type="car" route="moderate3" depart="80"/>
+    <vehicle id="veh3" type="car" route="moderate4" depart="90"/>
+    <vehicle id="veh4" type="car" route="moderate5" depart="100"/>
+    <vehicle id="veh5" type="car" route="moderate6" depart="110"/>
+    <vehicle id="veh6" type="car" route="moderate7" depart="120"/>
+    <vehicle id="veh7" type="car" route="packed2" depart="130"/>
+    <vehicle id="veh8" type="car" route="packed3" depart="140"/>
+    <vehicle id="veh9" type="car" route="dense1" depart="150"/>
+    <vehicle id="veh10" type="car" route="dense2" depart="160"/>
+    <vehicle id="veh11" type="car" route="dense3" depart="170"/>
+    <vehicle id="veh12" type="car" route="dense4" depart="180"/>
+    <vehicle id="veh13" type="car" route="dense5" depart="190"/>
+</routes>
