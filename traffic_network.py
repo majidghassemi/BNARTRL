@@ -36,9 +36,15 @@ class TrafficNetwork:
                 'start_node': u,
                 'end_node': v,
                 'length': data.get('length', None),
-                'maxspeed': data['maxspeed'],
+                'maxspeed': data.get('maxspeed'),
                 'traffic_density': data.get('traffic_density', 0),  # Ensure traffic_density exists
             }
+
+    def update_traffic_density(self, current_position, next_position):
+        """Update traffic density on the edge from current_position to next_position."""
+        edge = (current_position, next_position)
+        if edge in self.edge_info:
+            self.edge_info[edge]['traffic_density'] += 1
 
     def register_callback(self, callback):
         """Register a callback function to be called on signal state updates."""
@@ -62,16 +68,3 @@ class TrafficNetwork:
     def get_signal_states(self):
         """Return the current signal states."""
         return {node: info['signal_state'] for node, info in self.node_info.items()}
-
-    def print_node_info(self):
-        """Prints the node information."""
-        for node, info in self.node_info.items():
-            print(f"Node {node}: Signal State = {info['signal_state']}, "
-                  f"Position = {info['position']}, Connected Edges = {info['connected_edges']}")
-
-    def print_edge_info(self):
-        """Prints the edge information."""
-        for edge, info in self.edge_info.items():
-            print(f"Edge {edge}: Start Node = {info['start_node']}, End Node = {info['end_node']}, "
-                  f"Length = {info['length']} meters, Max Speed = {info['maxspeed']} km/h, "
-                  f"Traffic Density = {info['traffic_density']}")
